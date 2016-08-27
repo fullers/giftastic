@@ -31,8 +31,12 @@ function displayTopicInfo() {
 			// Retrieves the Rating Data
 			var rating = results[i].rating;
 
+			if (rating == "r" || rating == "pg-13") {
+
+			} else {
+
 			// Creates an element to have the rating displayed
-			var pOne = $('<p>').text("Rating: " + rating);
+			var pOne = $('<p id="rating">').text("Rating: " + rating);
 
 			// Displays the rating
 			topicDiv.append(pOne);
@@ -58,6 +62,7 @@ function displayTopicInfo() {
 
 			// Puts the entire image above the previous images.
 			$("#gifArea").prepend(topicDiv);
+	  }
 	  } // End of For Loop
 	}); // End of Done
 

@@ -1,6 +1,11 @@
 .well h1 {
 	color: #fff;
+	font-weight: bolder;
 }
 .well {
 	background: #446e9b !important;
+}
+
+#rating {
+	font-weight: bold;
 }
