@@ -2,13 +2,13 @@
 // Intial array of topics
 var topics = ["Dragon Ball Z", 'Bleach', 'Sword Art Online', 'Full Metal Alchemist']
 var limit = 2;
-
+var topic = "";
 
 function displayTopicInfo() {
 	$("#gifArea").empty();
-
-	topic = $(this).data('name');
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit="+ limit + "&fmt=JSON";
+	topic = $(this).attr('data-name');
+	console.log($(this).attr('data-name'));
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit="+ limit + "&fmt=JSON";
 
 	$.ajax({
 		url: queryURL, 
@@ -25,7 +25,7 @@ function displayTopicInfo() {
       	for(var i = 0; i < results.length; i++) {
 			// Creates a generic div to hold the topic
 			var topicDiv = $('<div>');
-				topicDiv.addClass('topic');
+				//topicDiv.addClass('topic');
 
 			// Retrieves the Rating Data
 			var rating = results[i].rating;
@@ -46,19 +46,22 @@ function displayTopicInfo() {
 			image.addClass('topicImage');
 
 			console.log("------------------");
+			console.log(results[i]);
 			console.log(topic);
 			console.log('Itterator: '+i);
-			console.log("Data Still: " + results[i].images.original_still.url);
-			console.log("Data Animate: " + results[i].images.original.url);
+			console.log("Data Still: " + results[i].images.fixed_height_still.url);
+			console.log("Data Animate: " + results[i].images.fixed_height.url);
 
 			// Appends the image
 			topicDiv.append(image);
 
 			// Puts the entire image above the previous images.
 			$("#gifArea").prepend(topicDiv);
+	  } // End of For Loop
+	}); // End of Done
 
-	  }
-	});
+	  return false;
+
 } //End of Function displayTopicInfo
 
 // Generic function for displaying topic data
@@ -95,20 +98,28 @@ $('#addTopic').on('click', function(){
 	return false;
 });
 
-$('.topicImage').on('click', function(){
-	
-    state = $(this).attr('data-state');
-    if ( state == 'still'){
+function changestate() {
+
+//$('.topicImage').on('click', function() {
+
+	console.log($(this));
+	//topic = $(this).attr('data-name');
+    var state = $(this).attr('data-state');
+    console.log(state);
+    if (state == 'still'){
         $(this).attr('src', $(this).data('animate'));
         $(this).attr('data-state', 'animate');
     }else{
         $(this).attr('src', $(this).data('still'));
         $(this).attr('data-state', 'still');
     }
-});
+//
+} // End of function changestate
 
 	// This calls the genButtons() function
 	genButtons();
 
 	// Generic function for displaying the topicInfo
 	$(document).on('click', '.topic', displayTopicInfo);
+
+	$(document).on('click', '.topicImage', changestate);
