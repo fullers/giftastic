@@ -1,14 +1,15 @@
 
 // Intial array of topics
 var topics = ["Dragon Ball Z", 'Bleach', 'Sword Art Online', 'Full Metal Alchemist']
-var limit = 2;
+var limit = 10;
 var topic = "";
 
+// Function to call the Gify query and create the div to place the rating and images.
 function displayTopicInfo() {
 	$("#gifArea").empty();
 	topic = $(this).attr('data-name');
-	console.log($(this).attr('data-name'));
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit="+ limit + "&fmt=JSON";
+	//console.log($(this).attr('data-name'));
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + " anime&api_key=dc6zaTOxFJmzC&limit="+ limit + "&fmt=JSON";
 
 	$.ajax({
 		url: queryURL, 
@@ -16,16 +17,16 @@ function displayTopicInfo() {
 	  })
 	  .done(function(response) {
 
-	  	console.log(queryURL);
-	  	console.log(response);
-	  	console.log(topic);
+	  	// console.log(queryURL);
+	  	// console.log(response);
+	  	// console.log(topic);
         
 	  	var results = response.data;
 
       	for(var i = 0; i < results.length; i++) {
+
 			// Creates a generic div to hold the topic
-			var topicDiv = $('<div>');
-				//topicDiv.addClass('topic');
+			var topicDiv = $('<div>');	
 
 			// Retrieves the Rating Data
 			var rating = results[i].rating;
@@ -45,12 +46,12 @@ function displayTopicInfo() {
 			image.attr('data-name', topic);
 			image.addClass('topicImage');
 
-			console.log("------------------");
-			console.log(results[i]);
-			console.log(topic);
-			console.log('Itterator: '+i);
-			console.log("Data Still: " + results[i].images.fixed_height_still.url);
-			console.log("Data Animate: " + results[i].images.fixed_height.url);
+			// console.log("------------------");
+			// console.log(results[i]);
+			// console.log(topic);
+			// console.log('Itterator: '+i);
+			// console.log("Data Still: " + results[i].images.fixed_height_still.url);
+			// console.log("Data Animate: " + results[i].images.fixed_height.url);
 
 			// Appends the image
 			topicDiv.append(image);
@@ -100,8 +101,6 @@ $('#addTopic').on('click', function(){
 
 function changestate() {
 
-//$('.topicImage').on('click', function() {
-
 	console.log($(this));
 	//topic = $(this).attr('data-name');
     var state = $(this).attr('data-state');
@@ -113,7 +112,7 @@ function changestate() {
         $(this).attr('src', $(this).data('still'));
         $(this).attr('data-state', 'still');
     }
-//
+
 } // End of function changestate
 
 	// This calls the genButtons() function
@@ -122,4 +121,5 @@ function changestate() {
 	// Generic function for displaying the topicInfo
 	$(document).on('click', '.topic', displayTopicInfo);
 
+	//Generic function for calling changestate based class topicImage
 	$(document).on('click', '.topicImage', changestate);
