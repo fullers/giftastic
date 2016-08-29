@@ -86,6 +86,7 @@ function genButtons(){
 	    a.text(topics[i]); // Provided the initial button text
 	    $('#btnArea').append(a); // Added the button to the HTML
 	}
+	return false;
 } // End Function genButtons
 
 // This function handles events where one button is clicked
@@ -94,14 +95,17 @@ $('#addTopic').on('click', function(){
 	// This line of code will grab the input from the textbox
 	var topic = $('#topic-input').val().trim();
 
+	if (topic !== null) {
+
 	// The topic from the textbox is then added to our array
 	topics.push(topic);
 
 	// Our array then runs which handles the processing of our topic array
 	genButtons();
-
-	// We have this line so that users can hit "enter" instead of clicking on ht button and it won't move to the next page
+    } else {
+	// We have this line so that users can hit "enter" instead of clicking on the button and it won't move to the next page
 	return false;
+	}
 });
 
 function changestate() {
