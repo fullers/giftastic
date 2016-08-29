@@ -95,17 +95,14 @@ $('#addTopic').on('click', function(){
 	// This line of code will grab the input from the textbox
 	var topic = $('#topic-input').val().trim();
 
-	if (topic !== null) {
-
 	// The topic from the textbox is then added to our array
 	topics.push(topic);
 
 	// Our array then runs which handles the processing of our topic array
 	genButtons();
-    } else {
+
 	// We have this line so that users can hit "enter" instead of clicking on the button and it won't move to the next page
 	return false;
-	}
 });
 
 function changestate() {
