@@ -92,6 +92,8 @@ function genButtons(){
 // This function handles events where one button is clicked
 $('#addTopic').on('click', function(){
 
+	$('#btnArea').empty();
+
 	// This line of code will grab the input from the textbox
 	var topic = $('#topic-input').val().trim();
 
