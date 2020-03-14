@@ -9,7 +9,7 @@ function displayTopicInfo() {
 	$("#gifArea").empty();
 	topic = $(this).attr('data-name');
 	//console.log($(this).attr('data-name'));
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + " anime&api_key=dc6zaTOxFJmzC&limit="+ limit + "&fmt=JSON";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + " anime&api_key=dc6zaTOxFJmzC&limit="+ limit + "&fmt=JSON";
 
 	$.ajax({
 		url: queryURL, 

@@ -8,8 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
   <!-- Bootstrap File -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="//bootswatch.com/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css">
 
 </head>
 <body>
@@ -20,8 +20,8 @@
 <div class="container-fluid">
 	<div class="row">
 	<div class="col-md-12">
-	<div class="panel panel-default">
-	    <div class="panel-body">
+	<div class="card">
+	    <div class="card-body">
 		    <div id="btnArea">
   			<!-- Buttons will be here -->
   			</div>
@@ -30,16 +30,17 @@
 	</div>
 	</div>
 </div>
+<div>&nbsp;</div>
 <!-- Gifs and Topic Form container -->
 <div class="container">
 <div class="row">
 <div class="col-md-7">
 <!-- Gifs Panel -->
-<div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Gifs</h3>
+<div class="card text-white bg-primary">
+    <div class="card-header">
+      <h3>Gifs</h3>
     </div>
-    <div class="panel-body">
+    <div class="card-body bg-light">
     	<div id="gifArea">
     	<!-- Gifs will be here -->
     	</div>
@@ -48,24 +49,24 @@
 </div>
 <div class="col-md-4">
 <!-- Buttons Panel -->
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Add a topic</h3>
+<div class="card text-white bg-primary">
+  <div class="card-header">
+    <h3>Add a topic</h3>
   </div>
-  <div class="panel-body">
+  <div class="card-body bg-light">
   <form id="topic-form">
     <div class="form-group">
     	<input type="text" id="topic-input" name="topic" placeholder="Enter Topic" class="form-control">
     </div>
     <div class="form-group">
-    	<input id="addTopic" type="submit"  value="Submit" class="btn btn-default"> 
+    	<input id="addTopic" type="submit"  value="Submit" class="btn btn-primary"> 
     </div>
    </form>
   </div>
 </div>
 </div>
 </div>
-<script src='//code.jquery.com/jquery-2.1.3.min.js'></script>
+<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 <script src="assets/javascript/app.js"></script>
 <script src="assets/javascript/bootstrap.min.js"></script>
 
